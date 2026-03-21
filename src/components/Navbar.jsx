@@ -1,6 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
+import { useCart } from "../contexts/CartContext";
 
 export default function Navbar() {
+  const { cartItems } = useCart();
+
   return (
     <nav
       style={{
@@ -63,6 +66,23 @@ export default function Navbar() {
           })}
         >
           Products
+        </NavLink>
+
+        <NavLink to="/cart">
+          🛒 Cart{" "}
+          {cartItems.length > 0 && (
+            <span
+              style={{
+                background: "red",
+                color: "white",
+                borderRadius: "50%",
+                padding: "2px 7px",
+                fontSize: "12px",
+              }}
+            >
+              {cartItems.length}
+            </span>
+          )}
         </NavLink>
       </div>
     </nav>
