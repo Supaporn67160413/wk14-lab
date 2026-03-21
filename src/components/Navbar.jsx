@@ -25,6 +25,7 @@ export default function Navbar() {
 
       <div style={{ display: "flex", gap: "15px", marginLeft: "auto" }}>
         {/* NavLink เพิ่ม active class อัตโนมัติ */}
+        {/* NavLink คือสามารถรู้ตัวเองได้ว่าในตอนนี้เรา Active อยู่ที่หรือไม่ แต่ถ้าเป็น Link ธรรมดาจะไม่รู้ตัวเอง */}
         <NavLink
           to="/"
           end
@@ -49,6 +50,19 @@ export default function Navbar() {
           })}
         >
           About
+        </NavLink>
+
+        <NavLink
+          to="/products"
+          style={({ isActive }) => ({
+            color: "white",
+            // ลบเส้นใต้ของข้อความ
+            textDecoration: "none",
+            fontWeight: isActive ? "bold" : "normal",
+            borderBottom: isActive ? "2px solid white" : "none",
+          })}
+        >
+          Products
         </NavLink>
       </div>
     </nav>
